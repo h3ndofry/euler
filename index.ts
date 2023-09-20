@@ -1,4 +1,4 @@
-import { default as solution } from "./solution18";
+import { default as solution } from "./solutions/solution18";
 
 // let's initialise this here.
 // const triangle: Array<Array<number>> = [
