@@ -27,7 +27,7 @@ const solution = (triangle: Array<Array<number>>): number => {
     // ... but here, we will iterate across each row's members
     for (let j = 0; j <= i; j++) {
       // we are comparing the next row's values (this is why we had to select the second-to-last row)
-      // and then replacing the current array member with the sum of the values so far.
+      // and then replacing the current array member with the largest sum of the values in the next row so far.
       triangle[i][j] += Math.max(triangle[i + 1][j], triangle[i + 1][j + 1]);
     }
   }
