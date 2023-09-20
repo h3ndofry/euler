@@ -1,0 +1,19 @@
+{
+  "name": "solution18",
+  "version": "1.0.0",
+  "author": "",
+  "main": "index.js",
+  "devDependencies": {
+    "bun-types": "latest",
+    "prettier": "^3.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "start": "bun --hot run index.ts"
+  }
+}
