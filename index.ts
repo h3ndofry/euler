@@ -22,13 +22,27 @@ const triangle: Array<Array<number>> = [
   [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]
 ];
 
+
+
 const server = Bun.serve({
   port: 3000,
-  fetch(_req: Request) {
+  async fetch(_req: Request) {
+    // let's get the text file containing problem 67
+    // local copy of https://projecteuler.net/resources/documents/0067_triangle.txt
+    const problem67File = await Bun.file('./files/problem67.txt').text();
+
+    // as the file is an array of arrays containing string variables we should parse the values as integers.
+    // but we should trim it first (in case there's some unexpected new lines in the text file, etc.)
+    const problem67Triangle = problem67File
+      .trim()
+      .split('\n')
+      .map((v) => v.split(' ').map((u) => parseInt(u)));
+
     // we're only doing this to ensure that we've got a fresh array every time the
     // page reloads
     const clonedTriangle = JSON.parse(JSON.stringify(triangle));
     let body: string = `Solution 18: ${solution(Object.assign([], clonedTriangle))}\n`;
+    body += `Solution 67: ${solution(problem67Triangle)}`
     return new Response(body);
   },
 });
